@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
+import Schedule from "./Schedule";
 
 
-
-function Navbar() {
+function Navbar( {handleLogOut} ) {
    
 
    return (
@@ -9,19 +10,19 @@ function Navbar() {
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Schedule</a>
+                <Link to="/schedule">Schedule</Link>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="//codeply.com">Billing</a>
+                <Link to="/billing">Billing</Link>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">My Lessons</a>
+                <Link to="/lessons">My Lessons</Link>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Log Out</a>
+                <Link to="/" onClick={handleLogOut}>Log Out</Link>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
+                <Link to="/profile">Profile</Link>
             </li>
         </ul>
     </div>

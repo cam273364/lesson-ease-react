@@ -22,6 +22,8 @@ function handleLogin() {
     })
   .then(function (user) {
     // handle success
+    //saves token to local storage
+    localStorage.setItem('token', user.data.token)
     console.log(user.data)
     console.log(user.data.userID)
     setIsInstructor(user.data.instructor)

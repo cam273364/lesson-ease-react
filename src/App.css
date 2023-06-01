@@ -41,3 +41,18 @@
     transform: rotate(360deg);
   }
 }
+
+
+.nav-item {
+  padding-left: 10px;
+  color: white;
+}
+
+
+.nav-item a{
+  color: white;
+  font-size: 18px;
+}
+/* #active-link {
+  t
+} */
