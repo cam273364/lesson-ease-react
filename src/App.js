@@ -8,6 +8,7 @@ import Navbar from './Navbar';
 import Profile from './Profile';
 import Schedule from './Schedule';
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 
 function App() {
@@ -15,7 +16,15 @@ function App() {
   const [isInstructor, setIsInstructor] = useState(false)
   const navigate = useNavigate();
 
-
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if(token) {
+      var decoded = jwt_decode(token);
+      setUserID(decoded._id)
+      setIsInstructor(decoded.instructor)
+      console.log(decoded)
+    }
+  }, [])
  
   useEffect(() => {
     if (userID && !isInstructor) {
@@ -25,9 +34,17 @@ function App() {
     } 
   }, [userID]);
   
+  function handleLogOut() {
+    console.log("something after 37")
+    setUserID("")
+    setIsInstructor(false)
+    localStorage.removeItem('token')
+    console.log('something after 41')
+  }
+
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar handleLogOut = {handleLogOut}/>
       
 
       
@@ -35,7 +52,7 @@ function App() {
       <Routes>
         <Route path="/profile" element={<Profile userID = {userID} />}/>
         <Route path="/schedule" element={<Schedule userID = {userID}/>}/>
-      
+        
       
       </Routes>
       : 
