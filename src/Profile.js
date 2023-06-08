@@ -73,15 +73,20 @@ function Profile({userID, isInstructor}){
       }, []);
       
     return (
-    <div>
-        <div>Profile</div>
-        <section id="profile-info">
-            First Name: <input type="text" placeholder="First Name" value={firstName} onChange={handleFirstNameChange}>
-
-            </input>
-            Last Name: <input type="text" placeholder="Last Name" value={lastName} onChange={handleLastNameChange}>
-            </input>
-            Last Name: <input type="text" placeholder="Email Address" value={email} onChange={handleEmailChange}>
+        <div>
+            <div>Profile</div>
+            <section id="profile-info">
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="inputFirstName">First Name</label>
+                        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" value={firstName} onChange={handleFirstNameChange} />
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="inputLastName">Last Name</label>
+                        <input type="text" class="form-control" id="inputLastName" value={lastName} onChange={handleLastNameChange} />
+                    </div>
+                </div>
+            {/* Email: <input type="text" placeholder="Email Address" value={email} onChange={handleEmailChange}>
             </input>
            {isInstructor && 
             <div> Instructor Bio: <textarea rows="4" cols="100" type="text" placeholder="Tell your students about yourself!" value={bio} onChange={handleBioChange}>
@@ -89,17 +94,20 @@ function Profile({userID, isInstructor}){
            {isInstructor &&
             <div> Venmo@: <textarea rows="4" cols="100" type="text" placeholder="What Venmo handle will you be paid?" value={venmo} onChange={handleVenmoChange}>
            </textarea></div>}
-            <button onClick={handleUserInfoUpdate}>Update</button>
+            <button onClick={handleUserInfoUpdate}>Update</button> */}
         </section>
     </div>
-    
-
-        
-
-
-
-
 )}
+{/* <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputFirstName">First Name</label>
+      <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" value={firstName} onChange={handleFirstNameChange}/>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputLastName">Last Name</label>
+      <input type="text" class="form-control" id="inputLastName" value={lastName} onChange={handleLastNameChange}/>
+    </div>
+  </div> */}
 
 export default Profile
 
