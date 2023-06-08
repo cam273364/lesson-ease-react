@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  /* background-image: url("backgroundlessonease.jpg");
+  background-size: cover; */
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -55,11 +55,26 @@ function MyLessons({userEmail, isInstructor}) {
 
       <div>
         <div>MyLessons</div>
+        <div class="container-fluid">
         <div>{calendarEvents.map((event) => {
             return (
-                <div>{event.name} Lesson Day/Time: {moment(event.start_time).format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>
+                <div class="row justify-content-center my-2">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body"> 
+                                <div class="h5 card-title">
+                                 {event.name}
+                             </div> 
+                                <div class="h6 card-text">
+                                    Lesson Day/Time: {moment(event.start_time).format("dddd, MMMM Do YYYY, h:mm:ss a")}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             )
         })}</div>
+        </div>
       </div>
     )
 

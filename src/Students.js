@@ -19,19 +19,25 @@ function Students({userID}) {
 
 
     return (
-      <div>
-        <div>Students</div>
-        <table>
+      <div class="container-fluid">
+        <div class="h3 my-3">Students</div>
+        <div class="row justify-content-center">
+        <div class="col-10">
+        <table class="table table-dark table-striped">
+            <thead>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Notes</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Notes</th>
             </tr>
+            </thead>
             
+            <tbody>
             {users.map(user => {
                 return (
                     <tr>
+                        
                         <td>{user.firstName}</td>
                         <td>{user.lastName}</td>
                         <td>{user.email}</td>
@@ -43,8 +49,11 @@ function Students({userID}) {
                 )
         })}
 
+            </tbody>
+       
         </table>
-
+        </div>
+        </div>
       </div>
     
     )
