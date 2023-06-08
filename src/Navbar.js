@@ -1,9 +1,29 @@
 import { Link } from "react-router-dom";
 import Schedule from "./Schedule";
+import App from "./App"
 
+function Navbar( {handleLogOut, isInstructor} ) {
+    
+   console.log(isInstructor)
+    
+   function getMyStudentsOrInstructors(isInstructor) {
+        let htmlBlock = ""
+        if (isInstructor) {
+            htmlBlock = (            
+                <li class="nav-item">
+                    <Link to="/students">My Students</Link>
+                </li>
+                )
+        } else {
+            htmlBlock =  (
+                <li class="nav-item">
+                    <Link to="/myinstructors">My Instructors</Link>
+                </li>
+            )
+        }
+        return htmlBlock
 
-function Navbar( {handleLogOut} ) {
-   
+   }
 
    return (
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -16,8 +36,10 @@ function Navbar( {handleLogOut} ) {
                 <Link to="/billing">Billing</Link>
             </li>
             <li class="nav-item">
-                <Link to="/lessons">My Lessons</Link>
+                <Link to="/myLessons">My Lessons</Link>
             </li>
+
+            {getMyStudentsOrInstructors(isInstructor)}
             <li class="nav-item">
                 <Link to="/" onClick={handleLogOut}>Log Out</Link>
             </li>

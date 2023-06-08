@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import jwt_decode from "jwt-decode";
 
 
-function Signin({setUserID, setIsInstructor}) {
+
+function Signin({setUserID, setIsInstructor, setUserEmail, setUser}) {
 const [email, setEmail] = useState('')
   function handleEmailChange(event) {
     setEmail(event.target.value)
@@ -24,10 +26,13 @@ function handleLogin() {
     // handle success
     //saves token to local storage
     localStorage.setItem('token', user.data.token)
-    console.log(user.data)
+    var decoded = jwt_decode(user.data.token);
+    setUser(decoded)
+    console.log('test sign in', user.data)
     console.log(user.data.userID)
     setIsInstructor(user.data.instructor)
     setUserID(user.data.userID)
+    setUserEmail(email)
   })
   .catch(function (error) {
     // handle error

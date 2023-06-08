@@ -1,8 +1,12 @@
-function Billing() {
+
+
+function Billing({venmo}) {
+
+
 
     return (
       <div>
-        <div>Billing</div>
+        <div><a href={`https://www.venmo.com/${venmo}`}>Click here to pay</a></div>
       </div>
     )
 
